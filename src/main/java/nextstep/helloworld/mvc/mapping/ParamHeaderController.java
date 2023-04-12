@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/param-header")
 public class ParamHeaderController {
 
+    @GetMapping("/message")
     public ResponseEntity<String> message() {
         return ResponseEntity.ok().body("message");
     }

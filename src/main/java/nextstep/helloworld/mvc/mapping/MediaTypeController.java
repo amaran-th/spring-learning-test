@@ -13,6 +13,7 @@ import java.util.List;
 @RequestMapping("/media-type")
 public class MediaTypeController {
 
+    @PostMapping("/users")
     public ResponseEntity createUser(@RequestBody User user) {
         Long id = 1L;
         return ResponseEntity.created(URI.create("/users/" + id)).build();

@@ -12,11 +12,11 @@ import java.util.List;
 @RequestMapping("/method-argument")
 public class MethodArgumentController {
 
-    @GetMapping("/users")
-    public ResponseEntity<List<User>> requestParam(String userName) {
+    @GetMapping(path="/users", params="name")
+    public ResponseEntity<List<User>> requestParam(@RequestParam String name) {
         List<User> users = Arrays.asList(
-                new User(userName, "email"),
-                new User(userName, "email")
+                new User(name, "email"),
+                new User(name, "email")
         );
         return ResponseEntity.ok().body(users);
     }
