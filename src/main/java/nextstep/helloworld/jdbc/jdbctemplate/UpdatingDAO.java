@@ -41,7 +41,7 @@ public class UpdatingDAO {
      */
     public int delete(Long id) {
         String sql = "delete from customers where id = ?";
-        return 0;
+        return jdbcTemplate.update(sql, id);
     }
 
     /**
