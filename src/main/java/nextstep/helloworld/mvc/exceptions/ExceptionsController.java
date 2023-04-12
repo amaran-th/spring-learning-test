@@ -22,7 +22,13 @@ public class ExceptionsController {
         throw new HelloException();
     }
 
-    public ResponseEntity<String> handle() {
+    @ExceptionHandler
+    public ResponseEntity<String> handle(CustomException ex) {
         return ResponseEntity.badRequest().body("CustomException");
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<String> handle(HelloException ex) {
+        return ResponseEntity.badRequest().body("HelloException");
     }
 }
