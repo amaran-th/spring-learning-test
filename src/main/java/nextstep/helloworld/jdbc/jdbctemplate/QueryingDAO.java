@@ -37,7 +37,7 @@ public class QueryingDAO {
      */
     public String getLastName(Long id) {
         String sql = "select last_name from customers where id = ?";
-        return null;
+        return jdbcTemplate.queryForObject(sql, String.class, id);
     }
 
     /**
@@ -53,7 +53,11 @@ public class QueryingDAO {
      */
     public List<Customer> findAllCustomers() {
         String sql = "select id, first_name, last_name from customers";
-        return null;
+        return jdbcTemplate.query(sql, (rs, rowNum) -> new Customer(
+                rs.getLong("id"),
+                rs.getString("first_name"),
+                rs.getString("last_name")
+        ));
     }
 
     /**
